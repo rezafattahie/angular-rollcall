@@ -24,6 +24,7 @@
                 </button>
             </div>
         </form>
+        <span *ngIf="!isAuthenticated && form.touched">User name or passwors is wrong!</span>
     </div>
 </div>
 <!-- </div> -->
