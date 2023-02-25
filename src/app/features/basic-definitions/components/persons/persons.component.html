@@ -1,0 +1,19 @@
+<div class="example-button-row">
+    <button mat-icon-button color="warn" matTooltip="Remove person" (click)="showModal('delete')">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+    </button>
+
+    <button mat-icon-button matTooltip="Edit person" text-white (click)="showModal('edit')">
+        <mat-icon aria-hidden="false" color="primary" Example home icon fontIcon="edit"></mat-icon>
+    </button>
+
+    <button mat-icon-button color="accent" matTooltip="Add new person" (click)="showModal('add')">
+        <mat-icon aria-hidden="false" color="accent" aria-label="Example home icon" fontIcon="person_add"></mat-icon>
+    </button>
+</div>
+
+<section >
+    <app-grid [dataSource]="gridData" (selectedRow)="onRowSelect($event)"></app-grid>
+</section>
+
+<div [class]="classes">salam</div>

@@ -1,0 +1,435 @@
+{
+    "BarChart": {
+        "DataSource": [
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت ايراني توليد اتومبيل سايپا",
+                "Am4": 73664,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت پالايش نفت اصفهان",
+                "Am4": 65290,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "ايران خودرو",
+                "Am4": 85495,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت نفت پاسارگاد",
+                "Am4": 88897,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شركت نفت ايرانول",
+                "Am4": 60626,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت توزيع دارو پخش",
+                "Am4": 72634,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "ذوب آهن اصفهان",
+                "Am4": 89716,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "بهمن ديزل",
+                "Am4": 77480,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "مجتمع صنايع لاستيک يزد",
+                "Am4": 83202,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت مهندسي سازه گسترسايپا",
+                "Am4": 71241,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت مجتمع صنعتي ارتاويل تاير",
+                "Am4": 78209,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت ياتاقان بوش ايران",
+                "Am4": 78118,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت کنترل گاز اکباتان",
+                "Am4": 99868,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت توليدي موتورگيربکس واکسل سايپا مگاموتور",
+                "Am4": 95560,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "طراحي و ساخت قطعات صنايع ايران",
+                "Am4": 50209,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت ايران دوچرخ",
+                "Am4": 61294,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت رادياتور ايران",
+                "Am4": 82550,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "سيدعلي منصورزاده",
+                "Am4": 75049,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "12",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "علي ملك",
+                "Am4": 70332,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "سازمان تامین اجتماعی",
+                "Am4": 59855,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "بازرگانی دولتی ایران",
+                "Am4": 55535,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "ذوب آهن اصفهان",
+                "Am4": 56786,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت پارس خودرو",
+                "Am4": 98953,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت ایرانی تولید اتومبیل سایپا",
+                "Am4": 59109,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت فولادمبارکه",
+                "Am4": 69925,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "پویا گستر خراسان",
+                "Am4": 67912,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "دانشگاه علوم پزشكي اصفهان",
+                "Am4": 55386,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "لیزینگ رایان سایپا",
+                "Am4": 70821,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "بسپار سازه توس",
+                "Am4": 59501,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "داروسازی کاسپین تامین",
+                "Am4": 59364,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شركت توليدي كروز",
+                "Am4": 92107,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "داروسازی ابوریحان",
+                "Am4": 59817,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت بوتان",
+                "Am4": 88724,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "شرکت دارو سازی اکسیر",
+                "Am4": 67173,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "اوزان",
+                "Am4": 93990,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "پارت لاستیک",
+                "Am4": 79576,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "پخش هجرت",
+                "Am4": 56280,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            },
+            {
+                "Bank": "17",
+                "BankName": "",
+                "Date1": "1400/12/30",
+                "IpName": "داروسازی زاگرس فارمد پارس",
+                "Am4": 59912,
+                "Srt1": null,
+                "Srt2": null,
+                "Tags": null
+            }
+        ],
+        "Properties": {
+            "series": [
+                {
+                    "Field": "Am4",
+                    "FieldName": "مانده خالص تسهيلات/بدهي",
+                    "FieldType": "Currency",
+                    "SerieType": "",
+                    "Postfix": "",
+                    "Prefix": "",
+                    "Color": ""
+                }
+            ],
+            "exceptionItems": [],
+            "extraSeries": [],
+            "argument": {
+                "value": "IpName",
+                "name": "IpName",
+                "type": "String",
+                "exceptionField": null
+            },
+            "extraTooltips": [],
+            "axisLabelType": "",
+            "axisLabelCaption": "",
+            "seriesState": ""
+        },
+        "Other_Properties": [
+            {
+                "Name": "Title",
+                "Value": "نمودار میله ای (1)"
+            },
+            {
+                "Name": "SubTitle",
+                "Value": "20 مشتری برتر"
+            },
+            {
+                "Name": "RLFilter",
+                "Value": ""
+            },
+            {
+                "Name": "ExtraTitle",
+                "Value": "ماه اسفند"
+            },
+            {
+                "Name": "ExtraTitle",
+                "Value": "سال 1400"
+            }
+        ]
+    },
+    "status": 1,
+    "List_Response": []
+}
