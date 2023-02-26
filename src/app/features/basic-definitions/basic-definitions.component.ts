@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-basic-definitions',
-  templateUrl: './basic-definitions.component.html',
+  // template: `<router-outlet></router-outlet>`,
+  template: `<h1></h1>`,
   styleUrls: ['./basic-definitions.component.scss']
 })
 export class BasicDefinitionsComponent {

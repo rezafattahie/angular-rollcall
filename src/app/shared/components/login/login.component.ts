@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     if (form.value.password == 123 && form.value.username === "reza") {
       this.authService.login();
       this.router.navigate(['']);
-      this.toaster.success(form.value.username + " logged in successfully!")
+      this.toaster.success("logged in successfully!", form.value.username)
     } else {
       this.authService.logout();
       this.toaster.error("User name or password is wrong.", "Login failed")
