@@ -11,6 +11,8 @@ import { ApiService } from 'src/app/shared/services/api.service';
 })
 export class PersonsComponent {
 
+  isLoading: boolean = false;
+
   constructor(
     private modal: MatDialog,
     private api: ApiService
@@ -22,9 +24,13 @@ export class PersonsComponent {
   isMyClass: boolean = false;
 
   ngOnInit() {
+    this.isLoading = true;
     this.api.get('persons').subscribe(result => {
       this.gridData = result
-    })
+      this.isLoading = false;
+    }, error => {
+      this.isLoading = false;
+    });
 
     this.classes = {
       'myClass': this.isMyClass,

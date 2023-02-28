@@ -11,10 +11,11 @@ import { LoginComponent } from './shared/components/login/login.component';
 
 const routes: Routes = [
   {
-    path: '', component: HomeComponent, canActivate: [AuthGuard], children: [
-      { path: 'basic-defs', component: BasicDefinitionsComponent },
+    path: '', component: HomeComponent, canActivate: [AuthGuard],
+    children: [
+      { path: 'basic-defs', component: BasicDefinitionsComponent, loadChildren: () => import('./features/basic-definitions/basic-definitions.module').then(m => m.BasicDefinitionsModule) },
       { path: 'operations', component: OperationsComponent },
-      { path: 'reports', component: ReportsComponent }
+      { path: 'reports', component: ReportsComponent },
     ]
   },
   { path: 'login', component: LoginComponent },

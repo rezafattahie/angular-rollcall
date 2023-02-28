@@ -10,11 +10,13 @@ import { GridComponent } from './components/grid/grid.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import { SharedRoutingModule } from './shared-routing.module';
 
 
 @NgModule({
@@ -22,9 +24,11 @@ import { MatIconModule } from '@angular/material/icon';
     LoginComponent,
     NotFoundComponent,
     ModalComponent,
-    GridComponent
+    GridComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
+    SharedRoutingModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -38,7 +42,15 @@ import { MatIconModule } from '@angular/material/icon';
     MatPaginatorModule
   ],
   exports: [
-    GridComponent
+    GridComponent,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    LoadingSpinnerComponent,
   ]
 })
 export class SharedModule { }

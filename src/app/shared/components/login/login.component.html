@@ -1,11 +1,16 @@
 <!-- <div class="limiter"> -->
+
 <div class="container-login100">
     <div class="wrap-login100">
+        <div *ngIf="isLoading">
+            <app-loading-spinner></app-loading-spinner>
+        </div>
         <div class="login100-form-title">
             Login to roll call system
         </div>
 
-        <form class="login100-form validate-form" autocomplete="off" (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <form *ngIf="!isLoading" class="login100-form validate-form" autocomplete="off" (ngSubmit)="onSubmit(form)"
+            #form="ngForm">
             <div class="wrap-input100 validate-input m-b-26">
                 <span class="label-input100">Username</span>
                 <input class="input100" type="text" ngModel name="username" required>
