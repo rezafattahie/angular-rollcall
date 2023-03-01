@@ -1,57 +1,79 @@
 {
-  "persons": [
+  "menu": [
     {
-      "personId": "1",
-      "personFName": "reza",
-      "personLName": "fattahi",
+      "id": 1,
+      "item": "Basic Definitions",
+      "path": "basic-defs",
+      "children": {
+        "subId": 11,
+        "subItem": "Students",
+        "path": "students"
+      }
+    },
+    {
+      "id": 2,
+      "item": "Operations",
+      "path": "operations"
+    },
+    {
+      "id": 3,
+      "item": "Reports",
+      "path": "reports"
+    }
+  ],
+  "students": [
+    {
+      "studentId": "1",
+      "studentFName": "reza",
+      "studentLName": "fattahi",
       "id": 1
     },
     {
-      "personId": "1",
-      "personFName": "reza",
-      "personLName": "fattahi2",
+      "studentId": "1",
+      "studentFName": "reza",
+      "studentLName": "fattahi2",
       "id": 2
     },
     {
-      "personId": "3",
-      "personFName": "mahsan",
-      "personLName": "ghasemi",
+      "studentId": "3",
+      "studentFName": "mahsan",
+      "studentLName": "ghasemi",
       "id": 3
     },
     {
-      "personId": "4",
-      "personFName": "f",
-      "personLName": "fff",
+      "studentId": "4",
+      "studentFName": "f",
+      "studentLName": "fff",
       "id": 4
     },
     {
-      "personId": "d435",
-      "personFName": "mah",
-      "personLName": "reza",
+      "studentId": "d435",
+      "studentFName": "mah",
+      "studentLName": "reza",
       "id": 5
     },
     {
-      "personId": "8585",
-      "personFName": "kjasdh",
-      "personLName": "lksajfb",
+      "studentId": "8585",
+      "studentFName": "kjasdh",
+      "studentLName": "lksajfb",
       "id": 6
     },
     {
-      "personId": "4",
-      "personFName": "fatal",
-      "personLName": "fff",
+      "studentId": "4",
+      "studentFName": "fatal",
+      "studentLName": "fff",
       "id": 7
     },
     {
-      "personId": "2070",
-      "personFName": "j",
-      "personLName": "kml",
+      "studentId": "2070",
+      "studentFName": "j",
+      "studentLName": "kml",
       "id": 8
     },
     {
-      "personId": "82",
-      "personFName": "kjasdh",
-      "personLName": "lksajfb",
+      "studentId": "82",
+      "studentFName": "kjasdh",
+      "studentLName": "lksajfb",
       "id": 9
     }
   ],

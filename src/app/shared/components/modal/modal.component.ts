@@ -9,7 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
-  personsForm !: FormGroup;
+  studentsForm !: FormGroup;
 
   constructor(
     private api: ApiService,
@@ -19,7 +19,7 @@ export class ModalComponent {
   }
 
   ngOnInit(): void {
-    this.personsForm = new FormGroup(({
+    this.studentsForm = new FormGroup(({
       personId: new FormControl(null, Validators.required),
       personFName: new FormControl(null, Validators.required),
       personLName: new FormControl(null, Validators.required),
@@ -27,18 +27,18 @@ export class ModalComponent {
     )
 
     if (this.editData) {
-      this.personsForm.controls['personId'].setValue(this.editData[0].personId);
-      this.personsForm.controls['personFName'].setValue(this.editData[0].personFName);
-      this.personsForm.controls['personLName'].setValue(this.editData[0].personLName);
+      this.studentsForm.controls['personId'].setValue(this.editData[0].personId);
+      this.studentsForm.controls['personFName'].setValue(this.editData[0].personFName);
+      this.studentsForm.controls['personLName'].setValue(this.editData[0].personLName);
 
     }
   }
 
   onAddNewPerson() {
-    if (this.personsForm.valid) {
-      this.api.post(this.personsForm.value, 'persons').subscribe(result => {
+    if (this.studentsForm.valid) {
+      this.api.post(this.studentsForm.value, 'students').subscribe(result => {
         alert('New Person Added.');
-        this.personsForm.reset();
+        this.studentsForm.reset();
       }, error => {
         alert('Failed To Add New Person')
       });

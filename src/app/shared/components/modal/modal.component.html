@@ -1,8 +1,8 @@
-<h4 mat-dialog-title>Add New Person</h4>
+<h4 mat-dialog-title>Add New Student</h4>
 <div class="example-form-fields">
-    <form [formGroup]="personsForm">
+    <form [formGroup]="studentsForm">
         <mat-form-field appearance="fill" style="margin-right: 5px;">
-            <mat-label>Organization ID</mat-label>
+            <mat-label>Student ID</mat-label>
             <input autocomplete="off" formControlName="personId" matInput placeholder="">
         </mat-form-field>
         <mat-form-field appearance="fill" style="margin-right: 5px;">
@@ -18,5 +18,5 @@
 
 <div mat-dialog-actions [align]="'end'">
     <button mat-button mat-dialog-close>Close</button>
-    <button mat-raised-button color="accent" disabled={{!personsForm.valid}} (click)="onAddNewPerson()">Save</button>
+    <button mat-raised-button color="accent" disabled={{!studentsForm.valid}} (click)="onAddNewPerson()">Save</button>
 </div>
