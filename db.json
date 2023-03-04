@@ -4,11 +4,28 @@
       "id": 1,
       "item": "Basic Definitions",
       "path": "basic-defs",
-      "children": {
-        "subId": 11,
-        "subItem": "Students",
-        "path": "students"
-      }
+      "children": [
+        {
+          "subId": 11,
+          "subItem": "Students",
+          "path": "students"
+        },
+        {
+          "subId": 12,
+          "subItem": "Teachers",
+          "path": "teachers"
+        },
+        {
+          "subId": 13,
+          "subItem": "Courses",
+          "path": "courses"
+        },
+        {
+          "subId": 14,
+          "subItem": "Holidays",
+          "path": "holidays"
+        }
+      ]
     },
     {
       "id": 2,
@@ -27,54 +44,6 @@
       "studentFName": "reza",
       "studentLName": "fattahi",
       "id": 1
-    },
-    {
-      "studentId": "1",
-      "studentFName": "reza",
-      "studentLName": "fattahi2",
-      "id": 2
-    },
-    {
-      "studentId": "3",
-      "studentFName": "mahsan",
-      "studentLName": "ghasemi",
-      "id": 3
-    },
-    {
-      "studentId": "4",
-      "studentFName": "f",
-      "studentLName": "fff",
-      "id": 4
-    },
-    {
-      "studentId": "d435",
-      "studentFName": "mah",
-      "studentLName": "reza",
-      "id": 5
-    },
-    {
-      "studentId": "8585",
-      "studentFName": "kjasdh",
-      "studentLName": "lksajfb",
-      "id": 6
-    },
-    {
-      "studentId": "4",
-      "studentFName": "fatal",
-      "studentLName": "fff",
-      "id": 7
-    },
-    {
-      "studentId": "2070",
-      "studentFName": "j",
-      "studentLName": "kml",
-      "id": 8
-    },
-    {
-      "studentId": "82",
-      "studentFName": "kjasdh",
-      "studentLName": "lksajfb",
-      "id": 9
     }
   ],
   "comments": []
