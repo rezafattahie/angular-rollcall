@@ -1,10 +1,11 @@
 <aside class="sidebar">
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 250px;height: 95vh;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <svg class="bi pe-none me-2" width="40" height="32">
                 <use xlink:href="#bootstrap" />
             </svg>
-            <span class="fs-4">Roll call system</span>
+            <span class="fs-6">Roll call system</span>
+            <i class="bi-alarm text-white"></i>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
@@ -25,11 +26,22 @@
                     </svg>
                     {{menuItem.item}}
                 </a>
+                <ul *ngIf="menuItem.children" class="nav nav-pills flex-column text-info mb-auto mt-2 ms-4">
+                    <li *ngFor="let submenu of menuItem.children" class="nav-item mb-1 ">
+                        <a href="" [routerLink]="['/'+ menuItem.path + '/' +  submenu.path]" class="nav-link text-white"
+                            [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}" aria-current="page">
+                            <svg class="bi pe-none me-2" width="16" height="16">
+                                <use xlink:href="#home" />
+                            </svg>
+                            {{submenu.subItem}}
+                        </a>
+                    </li>
+                </ul>
             </li>
         </ul>
         <hr>
         <div class="dropdown">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+            <a href="#" class="d-flex align-items-center text-white mt-1 text-decoration-none dropdown-toggle"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="" alt="" width="32" height="32" class="rounded-circle me-2">
                 <strong>Profile</strong>

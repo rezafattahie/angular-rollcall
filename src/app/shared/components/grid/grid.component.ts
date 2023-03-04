@@ -17,6 +17,7 @@ export class GridComponent {
 
   displayedColumns: string[] = [];
   clickedRows = new Array();
+  classes: { [ket: string]: boolean } = {};
 
   constructor(
   ) { }
@@ -30,10 +31,13 @@ export class GridComponent {
 
   }
 
-  salam(row:any) {
+  rowSelect(row: any) {
     this.clickedRows = new Array();
     this.clickedRows.push(row);
-    this.selectedRow.emit(this.clickedRows)
+    this.selectedRow.emit(this.clickedRows);
+    this.classes = {
+      'row-selected': this.clickedRows && this.rowSelect.length > 0 ? true : false
+    };
     console.log('%cgrid.component.ts line:35 this.clickedRows', 'color: white; background-color: #26bfa5;', this.clickedRows);
   }
 

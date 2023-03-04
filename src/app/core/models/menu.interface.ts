@@ -2,8 +2,9 @@ export interface IMenu {
     id: number;
     item: string,
     path: string,
-    children: {
+    children: [{
         subId: number,
-        subItem: string
-    }
+        subItem: string,
+        path: string
+    }]
 }

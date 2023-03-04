@@ -1,5 +1,6 @@
 <div>
-    <div class="example-button-row">
+    <div
+        class="align-items-center bg-opacity-10 bg-secondary d-flex example-button-row justify-content-between m-auto mb-1 rounded-5 w-25">
         <button mat-icon-button color="warn" matTooltip="Remove person" (click)="showModal('delete')">
             <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
         </button>
@@ -15,7 +16,7 @@
     </div>
 
     <section>
-        <app-grid [dataSource]="gridData" (selectedRow)="onRowSelect($event)"></app-grid>
+        <app-grid class="classes" [dataSource]="gridData" (selectedRow)="onRowSelect($event)"></app-grid>
     </section>
 </div>
 <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

@@ -3,12 +3,9 @@
 
         <ng-container *ngFor="let column of displayedColumns" matColumnDef={{column}}>
             <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-            <td (click)="salam(element)"  mat-cell *matCellDef="let element"> {{element[column]}}
-                <tr  mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr
-                mat-row      
-                *matRowDef="let row; columns: displayedColumns;"
-            ></tr>
+            <td (click)="rowSelect(element)" mat-cell *matCellDef="let element"> {{element[column]}}
+                <tr class="classes" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </ng-container>
 
 

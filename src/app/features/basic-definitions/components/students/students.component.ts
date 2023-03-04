@@ -21,7 +21,7 @@ export class studentsComponent {
   gridData: any
   selectedrow: any
   classes: { [ket: string]: boolean } = {};
-  isMyClass: boolean = false;
+  isRowSelected: boolean = false;
 
   ngOnInit() {
     this.isLoading = true;
@@ -31,12 +31,9 @@ export class studentsComponent {
     }, error => {
       this.isLoading = false;
     });
-
     this.classes = {
-      'myClass': this.isMyClass,
-      'yourClass': !this.isMyClass
+      'row-selected': this.isRowSelected,
     }
-
   }
 
   showModal(actionMode: string) {
@@ -76,6 +73,7 @@ export class studentsComponent {
   onRowSelect(event: any) {
     console.log('%cstudents.component.ts line:54 event', 'color: white; background-color: coral;', event);
     this.selectedrow = event
+    this.isRowSelected = true;
   }
 
 }
