@@ -10,29 +10,20 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
   isAuthenticated: boolean = false;
   isLoading: boolean = false;
 
   constructor(
-    private router: Router,
     private authService: AuthService,
-    private toaster: ToastrService
+    private toast: ToastrService
   ) { }
+
   ngOnInit() {
-    this.isAuthenticated = this.authService.checkAuth();
+    // this.isAuthenticated = this.authService.checkAuth();
   }
 
   onSubmit(form: NgForm) {
-    console.log('%clogin.component.ts line:15 form', 'color: white; background-color: #26bfa5;', form);
-    if (form.value.password == 123 && form.value.username === "reza") {
-      this.authService.login();
-      this.router.navigate(['']);
-      this.toaster.success("Welcom " + form.value.username)
-    } else {
-      this.authService.logout();
-      this.toaster.error("User name or password is wrong.", "Login failed")
-    }
+    this.authService.login(form);
   }
 
 }
