@@ -23,7 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 3000,
-      positionClass: 'toast-top-center',
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
       iconClasses: {
         error: 'toast-error',

@@ -11,6 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthService {
   users: ITeachers[] = [];
+  foundUser?: ITeachers = { code: '', courses: [], imageUrl: '', name: '', password: '', username: '' };
   isLoggedIn: boolean = false;
   toaster: any;
 
@@ -24,8 +25,8 @@ export class AuthService {
     return new Promise((rosolve, reject) => {
       // TIMER DEFINED JUST FOR SIMULATION OF REAL RECIEVE DATA FROM BACK-END
       setTimeout(() => {
-        rosolve(this.isLoggedIn)
-      }, 1000);
+        rosolve(localStorage.getItem("User"))
+      }, 500);
     })
   }
 
@@ -36,40 +37,26 @@ export class AuthService {
   login(formInfo: NgForm) {
     this.api.get('teachers').subscribe((result: any) => {
       this.users = result;
-      // this.users.forEach((user): any => {
-      //           if (formInfo.value.username === user.username &&
-      //     formInfo.value.password === user.password) {
-      //     this.isLoggedIn = true;
-      //     this.router.navigate(['']);
-      //   } else {
-      //     this.isLoggedIn = false;
-      //   }
-      // })
-
-      const foundUser = this.users.find(user => {
+      this.foundUser = this.users.find(user => {
         return formInfo.value.username === user.username && formInfo.value.password === user.password;
       })
-      if (foundUser) {
+      if (this.foundUser) {
         this.isLoggedIn = true;
+        localStorage.setItem("User", JSON.stringify({ code: this.foundUser.code, name: this.foundUser.name }));
         this.router.navigate(['']);
-        this.toast.success(foundUser.name + ' loged in successfully!');
+        this.toast.success(this.foundUser.name + ' loged in successfully!');
       }
       else {
         this.isLoggedIn = false;
         this.toast.error('user name or password is wrong!');
       }
-      // if (this.isLoggedIn) {
-      //   this.toast.success('loged in');
-      // } else {
-      //   this.toast.error('user name or password is wrong!');
-      // }
-      console.log('%clogin.component.ts line:27 this.isLoggedIn', 'color: white; background-color: #007acc;', this.isLoggedIn);
     });
-
   }
 
   logout() {
     this.isLoggedIn = false;
+    this.router.navigate(['/login']);
+    localStorage.removeItem("User");
   }
 
 }

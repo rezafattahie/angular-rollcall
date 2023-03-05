@@ -60,6 +60,14 @@
   ],
   "teachers": [
     {
+      "code": "1",
+      "name": "Admin",
+      "courses": [],
+      "imageUrl": "",
+      "username": "1",
+      "password": "1"
+    },
+    {
       "code": "1001",
       "name": "Mr Smith",
       "courses": [],

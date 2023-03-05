@@ -1,7 +1,7 @@
 .ld-backdrop {
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 85vh;
     background: rgba(0, 0, 0, 0.683);
     z-index: 999999;
     top: 0;
@@ -9,12 +9,10 @@
 }
 
 .lds-ellipsis {
-    // width: 30vw;
-    // height: 50vh;
     position: absolute;
     z-index: 1000000;
-    top: 40vh;
-    left: 45vw;
+    top: calc(42.5vh - 46px);
+    left: calc(50% - 63px);
 }
 
 .lds-ellipsis div {
