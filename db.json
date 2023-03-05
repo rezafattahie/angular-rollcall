@@ -41,9 +41,50 @@
   "students": [
     {
       "studentId": "1",
-      "studentFName": "reza",
-      "studentLName": "fattahi",
-      "id": 1
+      "studentFName": "Reza",
+      "studentLName": "Fattahi",
+      "coursesList": []
+    },
+    {
+      "studentId": "2",
+      "studentFName": "Mahsan",
+      "studentLName": "Ghasemi",
+      "coursesList": []
+    },
+    {
+      "studentId": "3",
+      "studentFName": "Melika",
+      "studentLName": "Ardekani",
+      "coursesList": []
+    }
+  ],
+  "teachers": [
+    {
+      "code": "1001",
+      "name": "Mr Smith",
+      "courses": [],
+      "imageUrl": "",
+      "username": "1001",
+      "password": "1001"
+    },
+    {
+      "code": "1002",
+      "name": "Mr John",
+      "courses": [],
+      "imageUrl": "",
+      "username": "1002",
+      "password": "1002"
+    }
+  ],
+  "courses": [
+    {
+      "id": 101,
+      "name": "Mathematics"
+    }
+  ],
+  "holidays": [
+    {
+      "dates": []
     }
   ],
   "comments": []

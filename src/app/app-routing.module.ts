@@ -12,7 +12,7 @@ import { LoginComponent } from './shared/components/login/login.component';
 const routes: Routes = [
   {
     path: '', component: HomeComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       { path: 'basic-defs', component: BasicDefinitionsComponent, loadChildren: () => import('./features/basic-definitions/basic-definitions.module').then(m => m.BasicDefinitionsModule) },
       { path: 'operations', component: OperationsComponent },

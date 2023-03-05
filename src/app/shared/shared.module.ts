@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { SharedRoutingModule } from './shared-routing.module';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 
 @NgModule({
@@ -32,12 +33,13 @@ import { SharedRoutingModule } from './shared-routing.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    Ng2SmartTableModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    HttpClientModule,
     MatTableModule,
     MatPaginatorModule
   ],

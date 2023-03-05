@@ -20,7 +20,6 @@ export class menuComponent implements OnInit {
       if (result) {
         this.menuItems = result;
         this.isLoading = false;
-        console.log('%cmenu.component.ts line:23 this.menuItems', 'color: white; background-color: coral;', this.menuItems);
       }
     })
   }

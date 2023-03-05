@@ -1,1 +1,6 @@
-<p>courses works!</p>
+<div>
+    <section>
+        <app-grid class="classes" [dataSource]="gridData" [settings]="gridSettings"></app-grid>
+    </section>
+</div>
+<app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

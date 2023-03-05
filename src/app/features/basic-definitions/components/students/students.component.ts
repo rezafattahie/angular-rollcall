@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { IGridSettings } from 'src/app/shared/models/grid-settings.interface';
 import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
@@ -19,12 +20,22 @@ export class studentsComponent {
   ) { }
 
   gridData: any
+  gridSettings: IGridSettings = { columns: {} };
   selectedrow: any
   classes: { [ket: string]: boolean } = {};
   isRowSelected: boolean = false;
 
   ngOnInit() {
     this.isLoading = true;
+    this.gridSettings = {
+      columns: {
+
+        'studentId': { title: 'Student Code' },
+        'studentFName': { title: 'First Name' },
+        'studentLName': { title: 'Last Name' },
+        'coursesList': { title: 'Courses' }
+      }
+    }
     this.api.get('students').subscribe(result => {
       this.gridData = result
       this.isLoading = false;
@@ -68,12 +79,6 @@ export class studentsComponent {
     }
 
 
-  }
-
-  onRowSelect(event: any) {
-    console.log('%cstudents.component.ts line:54 event', 'color: white; background-color: coral;', event);
-    this.selectedrow = event
-    this.isRowSelected = true;
   }
 
 }
