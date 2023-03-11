@@ -6,6 +6,7 @@ import { BasicDefinitionsService } from '../../services/basic-definitions.servic
 import { IModalData } from 'src/app/features/models/modal-data.interface';
 import { IGridSettings } from 'src/app/shared/models/grid-settings.interface';
 import { UtilityService } from 'src/app/core/services/utility.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-students',
@@ -20,7 +21,8 @@ export class studentsComponent {
   constructor(
     private modal: NgbModal,
     private basicDefinitionsService: BasicDefinitionsService,
-    private utility: UtilityService
+    private utility: UtilityService,
+    private toast: ToastrService
   ) { }
 
   gridData: any;
@@ -98,7 +100,7 @@ export class studentsComponent {
       case 'edit': {
         this.modalData = {
           parent: 'students',
-          title: 'Add new student',
+          title: 'Update student',
           actionMode: actionMode,
           formFields: [
             { name: 'studentId', type: 'text', caption: 'Code' },
@@ -108,14 +110,29 @@ export class studentsComponent {
           ],
           selectedRow: this.selectedrow
         }
-        const modalRef = this.modal.open(ModalComponent);
-        modalRef.componentInstance.modalData = this.modalData;
+        if (!this.modalData.selectedRow) {
+          this.toast.error('Select an item to update first!')
+        }
+        else {
+          const modalRef = this.modal.open(ModalComponent);
+          modalRef.componentInstance.modalData = this.modalData;
+        }
         break;
       }
       case 'delete': {
-        const modalRef = this.modal.open(ModalComponent);
-        modalRef.componentInstance.modalData = this.modalData;
-        break;
+        this.modalData = {
+          parent: 'students',
+          title: 'Delete student',
+          actionMode: actionMode,
+          selectedRow: this.selectedrow
+        }
+        if (!this.modalData.selectedRow) {
+          this.toast.error('Select an item to delete first!')
+        }
+        else {
+          const modalRef = this.modal.open(ModalComponent);
+          modalRef.componentInstance.modalData = this.modalData;
+        }
       }
 
     }

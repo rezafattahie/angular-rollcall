@@ -16,8 +16,16 @@ export class BasicDefinitionsService {
         return this.api.get('students');
     }
 
-
     getCourses() {
         return this.api.get('courses');
     }
+
+    editItem(data: any, url: string, id: number) {
+        return this.api.put(data, url, id)
+    }
+
+    delete(url: string, id: number) {
+        return this.api.delete(url, id);
+    }
+
 }

@@ -1,5 +1,6 @@
 import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms'
+
 import { BasicDefinitionsService } from 'src/app/features/basic-definitions/services/basic-definitions.service';
 import { IModalData } from 'src/app/features/models/modal-data.interface';
 
@@ -12,17 +13,11 @@ import { IModalData } from 'src/app/features/models/modal-data.interface';
 export class ModalComponent {
 
   @Input() modalData: IModalData = { actionMode: '', parent: '' };
-  @ViewChild('closebutton') closebutton: any;
 
   constructor(
     private basicDefinitionsService: BasicDefinitionsService,
   ) { }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['modalData']) {
-
-    }
-  }
 
   ngOnInit(): void {
     console.log('%cmodal.component.ts line:26 this.modalData', 'color: white; background-color: #007acc;', this.modalData);
@@ -40,17 +35,24 @@ export class ModalComponent {
         break;
       }
       case 'edit': {
+        this.basicDefinitionsService.editItem(form.value, this.modalData.parent, this.modalData.selectedRow!.id)
+          .subscribe({
+            next: (result) => {
 
+            },
+            error: () => { }
+          })
         break;
       }
       case 'delete': {
-
+        this.basicDefinitionsService.delete(this.modalData.parent, this.modalData.selectedRow!.id)
+          .subscribe({
+            next: (res) => { },
+            error: () => { }
+          })
         break;
       }
-
     }
-
-    this.closebutton.nativeElement.click();
   }
 
 }

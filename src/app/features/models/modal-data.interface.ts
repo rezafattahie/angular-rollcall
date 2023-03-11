@@ -3,7 +3,7 @@ export interface IModalData {
     parent: string,
     title?: string,
     formFields?: IFormatFields[],
-    selectedRow?: {};
+    selectedRow?: { id: number };
 }
 
 interface IFormatFields {
