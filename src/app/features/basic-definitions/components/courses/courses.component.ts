@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { IGridSettings } from 'src/app/shared/models/grid-settings.interface';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { BasicDefinitionsService } from '../../services/basic-definitions.service';
 
 @Component({
   selector: 'app-courses',
@@ -14,7 +15,7 @@ export class CoursesComponent {
   isLoading: boolean = false;
 
   constructor(
-    private api: ApiService
+    private basicDefinitionsService: BasicDefinitionsService
   ) { }
 
   ngOnInit(): void {
@@ -24,8 +25,12 @@ export class CoursesComponent {
         "name": { title: 'Name' },
       }
     }
+    this.getAllCourses();
+  }
+
+  getAllCourses() {
     this.isLoading = true;
-    this.api.get('courses').subscribe((result) => {
+    this.basicDefinitionsService.getCourses().subscribe((result) => {
       this.gridData = result;
       this.isLoading = false;
     })

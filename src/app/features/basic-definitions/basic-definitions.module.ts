@@ -5,7 +5,6 @@ import { BasicDefinitionsRoutingModule } from './basic-definitions-routing.modul
 import { SharedModule } from 'src/app/shared/shared.module';
 import { studentsComponent } from './components/students/students.component';
 import { BasicDefinitionsComponent } from './basic-definitions.component';
-import { MatIconModule } from '@angular/material/icon';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { HolidaysComponent } from './components/holidays/holidays.component';
 import { CoursesComponent } from './components/courses/courses.component';

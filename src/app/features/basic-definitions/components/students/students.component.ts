@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
-import { MatDialog } from '@angular/material/dialog';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { BasicDefinitionsService } from '../../services/basic-definitions.service';
+import { IModalData } from 'src/app/features/models/modal-data.interface';
 import { IGridSettings } from 'src/app/shared/models/grid-settings.interface';
-import { ApiService } from 'src/app/shared/services/api.service';
+import { UtilityService } from 'src/app/core/services/utility.service';
 
 @Component({
   selector: 'app-students',
@@ -13,72 +15,110 @@ import { ApiService } from 'src/app/shared/services/api.service';
 export class studentsComponent {
 
   isLoading: boolean = false;
+  modalData: IModalData = { actionMode: '', parent: '' };
 
   constructor(
-    private modal: MatDialog,
-    private api: ApiService
+    private modal: NgbModal,
+    private basicDefinitionsService: BasicDefinitionsService,
+    private utility: UtilityService
   ) { }
 
-  gridData: any
+  gridData: any;
+  courses: any;
   gridSettings: IGridSettings = { columns: {} };
   selectedrow: any
   classes: { [ket: string]: boolean } = {};
   isRowSelected: boolean = false;
 
   ngOnInit() {
-    this.isLoading = true;
+    this.getAllStudents();
+    this.getAllCources();
     this.gridSettings = {
       columns: {
-
-        'studentId': { title: 'Student Code' },
-        'studentFName': { title: 'First Name' },
+        'studentId': { title: 'Code' },
+        'studentFName': { title: 'Name' },
         'studentLName': { title: 'Last Name' },
-        'coursesList': { title: 'Courses' }
+        'courses': { title: 'Courses' }
       }
     }
-    this.api.get('students').subscribe(result => {
-      this.gridData = result
-      this.isLoading = false;
-    }, error => {
-      this.isLoading = false;
-    });
+
     this.classes = {
       'row-selected': this.isRowSelected,
     }
   }
 
+  getAllCources() {
+    this.isLoading = true;
+    this.basicDefinitionsService.getCourses().subscribe(result => {
+      this.courses = result;
+      this.isLoading = false;
+    })
+  }
+
+  getAllStudents() {
+    this.isLoading = true;
+    this.basicDefinitionsService.getStudents().subscribe({
+      next: (result: any) => {
+        let courses;
+        this.gridData = result;
+        result.forEach((res: any, index: any) => {
+          this.gridData[index].courses = this.utility.getKeyByValue(res['courses'], true)
+        });
+        this.isLoading = false;
+      },
+      error: () => {
+        this.isLoading = false;
+      }
+    });
+  }
+  onRowSelect(event: Event) {
+    this.selectedrow = event;
+    this.isRowSelected = true;
+  }
+
   showModal(actionMode: string) {
-
+    this.modalData = { actionMode: '', parent: '' }
     switch (actionMode) {
-
       case 'add': {
-        this.modal.open(ModalComponent, {
-          width: '60%',
-          disableClose: true
-        })
-        break;
-      }
-
-      case 'edit': {
-        if (!this.selectedrow) {
-          alert('No item selected!');
-          return;
+        this.modalData = {
+          parent: 'students',
+          title: 'Add new student',
+          actionMode: actionMode,
+          formFields: [
+            { name: 'studentId', type: 'text', caption: 'Code' },
+            { name: 'studentFName', type: 'text', caption: 'Name' },
+            { name: 'studentLName', type: 'text', caption: 'Last Name' },
+            { name: 'courses', type: 'chechbox', caption: 'Courses', value: this.courses }
+          ]
         }
-        this.modal.open(ModalComponent, {
-          width: '60%',
-          disableClose: true,
-          data: this.selectedrow
-        })
+        const modalRef = this.modal.open(ModalComponent);
+        modalRef.componentInstance.modalData = this.modalData;
         break;
       }
-
+      case 'edit': {
+        this.modalData = {
+          parent: 'students',
+          title: 'Add new student',
+          actionMode: actionMode,
+          formFields: [
+            { name: 'studentId', type: 'text', caption: 'Code' },
+            { name: 'studentFName', type: 'text', caption: 'Name' },
+            { name: 'studentLName', type: 'text', caption: 'Last Name' },
+            { name: 'courses', type: 'chechbox', caption: 'Courses', value: this.courses }
+          ],
+          selectedRow: this.selectedrow
+        }
+        const modalRef = this.modal.open(ModalComponent);
+        modalRef.componentInstance.modalData = this.modalData;
+        break;
+      }
       case 'delete': {
-        alert('delete')
+        const modalRef = this.modal.open(ModalComponent);
+        modalRef.componentInstance.modalData = this.modalData;
+        break;
       }
 
     }
-
-
   }
 
 }

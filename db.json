@@ -40,22 +40,125 @@
   ],
   "students": [
     {
-      "studentId": "1",
-      "studentFName": "Reza",
-      "studentLName": "Fattahi",
-      "coursesList": []
+      "studentId": "124",
+      "studentFName": "AD",
+      "studentLName": "ASDF",
+      "courses": {
+        "Mathematics": true,
+        "Computer": true,
+        "Physics": true
+      },
+      "id": 1
     },
     {
-      "studentId": "2",
-      "studentFName": "Mahsan",
-      "studentLName": "Ghasemi",
-      "coursesList": []
+      "studentId": "1",
+      "studentFName": "reza",
+      "studentLName": "fattahi",
+      "courses": {
+        "Mathematics": "",
+        "Computer": true,
+        "Physics": ""
+      },
+      "id": 2
     },
     {
       "studentId": "3",
-      "studentFName": "Melika",
-      "studentLName": "Ardekani",
-      "coursesList": []
+      "studentFName": "ali",
+      "studentLName": "ljHADGK",
+      "courses": {
+        "Mathematics": "",
+        "Computer": "",
+        "Physics": true
+      },
+      "id": 3
+    },
+    {
+      "studentId": "3",
+      "studentFName": "JKLWH",
+      "studentLName": "KWHFL",
+      "courses": {
+        "Mathematics": true,
+        "Computer": "",
+        "Physics": true
+      },
+      "id": 4
+    },
+    {
+      "studentId": "DZV",
+      "studentFName": "ZXV",
+      "studentLName": "ZXV",
+      "courses": {
+        "Mathematics": "",
+        "Computer": true,
+        "Physics": ""
+      },
+      "id": 5
+    },
+    {
+      "studentId": "ADF",
+      "studentFName": "adF",
+      "studentLName": "ADf",
+      "courses": {
+        "Mathematics": "",
+        "Computer": true,
+        "Physics": ""
+      },
+      "id": 6
+    },
+    {
+      "studentId": "SDG",
+      "studentFName": "asfg",
+      "studentLName": "asf",
+      "courses": {
+        "Mathematics": "",
+        "Computer": true,
+        "Physics": ""
+      },
+      "id": 7
+    },
+    {
+      "studentId": "ZXV",
+      "studentFName": "SZD",
+      "studentLName": "SDv",
+      "courses": {
+        "Mathematics": "",
+        "Computer": true,
+        "Physics": ""
+      },
+      "id": 8
+    },
+    {
+      "studentId": "zsfcgb",
+      "studentFName": "zsfg",
+      "studentLName": "1111111111111",
+      "courses": {
+        "Mathematics": true,
+        "Computer": "",
+        "Physics": ""
+      },
+      "id": 9
+    },
+    {
+      "studentId": "zxb",
+      "studentFName": "xzvbn",
+      "studentLName": "zxvb",
+      "courses": {
+        "Mathematics": "",
+        "Computer": true,
+        "Physics": ""
+      },
+      "id": 10
+    },
+    {
+      "studentId": "sag",
+      "studentFName": "asfg",
+      "studentLName": "asg",
+      "courses": {
+        "Mathematics": "",
+        "Computer": true,
+        "Physics": ""
+      },
+      "id": 11
     }
   ],
   "teachers": [
@@ -88,6 +191,14 @@
     {
       "id": 101,
       "name": "Mathematics"
+    },
+    {
+      "id": 102,
+      "name": "Computer"
+    },
+    {
+      "id": 103,
+      "name": "Physics"
     }
   ],
   "holidays": [

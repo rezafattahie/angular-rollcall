@@ -1,7 +1,8 @@
-import { Component, Inject } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ApiService } from '../../services/api.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
+import { Component, Input, SimpleChanges, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms'
+import { BasicDefinitionsService } from 'src/app/features/basic-definitions/services/basic-definitions.service';
+import { IModalData } from 'src/app/features/models/modal-data.interface';
+
 
 @Component({
   selector: 'app-modal',
@@ -9,41 +10,47 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent {
-  studentsForm !: FormGroup;
+
+  @Input() modalData: IModalData = { actionMode: '', parent: '' };
+  @ViewChild('closebutton') closebutton: any;
 
   constructor(
-    private api: ApiService,
-    @Inject(MAT_DIALOG_DATA) public editData: any
-  ) {
+    private basicDefinitionsService: BasicDefinitionsService,
+  ) { }
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['modalData']) {
+
+    }
   }
 
   ngOnInit(): void {
-    this.studentsForm = new FormGroup(({
-      personId: new FormControl(null, Validators.required),
-      personFName: new FormControl(null, Validators.required),
-      personLName: new FormControl(null, Validators.required),
-    })
-    )
-
-    if (this.editData) {
-      this.studentsForm.controls['personId'].setValue(this.editData[0].personId);
-      this.studentsForm.controls['personFName'].setValue(this.editData[0].personFName);
-      this.studentsForm.controls['personLName'].setValue(this.editData[0].personLName);
-
-    }
+    console.log('%cmodal.component.ts line:26 this.modalData', 'color: white; background-color: #007acc;', this.modalData);
   }
+  submitForm(form: NgForm) {
+    console.log('%cmodal.component.ts line:20 this.modalForm', 'color: white; background-color: #26bfa5;', form);
+    switch (this.modalData.actionMode) {
+      case 'add': {
+        this.basicDefinitionsService.addNewItem(form.value, this.modalData.parent).subscribe({
+          next: (res) => {
+            console.log('%cmodal.component.ts line:35 res', 'color: #007acc;', res);
+          },
+          error: () => { }
+        })
+        break;
+      }
+      case 'edit': {
 
-  onAddNewPerson() {
-    if (this.studentsForm.valid) {
-      this.api.post(this.studentsForm.value, 'students').subscribe(result => {
-        alert('New Person Added.');
-        this.studentsForm.reset();
-      }, error => {
-        alert('Failed To Add New Person')
-      });
+        break;
+      }
+      case 'delete': {
+
+        break;
+      }
+
     }
 
+    this.closebutton.nativeElement.click();
   }
 
 }

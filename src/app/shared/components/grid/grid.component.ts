@@ -1,7 +1,5 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges, } from '@angular/core';
 
-import { MatPaginator } from '@angular/material/paginator';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { IGridSettings } from '../../models/grid-settings.interface';
 
 @Component({
@@ -13,6 +11,7 @@ export class GridComponent {
 
   @Input() dataSource = [];
   @Input() settings: IGridSettings = { columns: {} };
+  @Output() selectedRow = new EventEmitter();
 
   constructor() { }
 
@@ -26,7 +25,7 @@ export class GridComponent {
   }
 
   rowSelect(row: any) {
-
+    this.selectedRow.emit(row.data);
   }
 
 }

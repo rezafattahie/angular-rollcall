@@ -1,22 +1,37 @@
-<h4 mat-dialog-title>Add New Student</h4>
-<div class="example-form-fields">
-    <form [formGroup]="studentsForm">
-        <mat-form-field appearance="fill" style="margin-right: 5px;">
-            <mat-label>Student ID</mat-label>
-            <input autocomplete="off" formControlName="personId" matInput placeholder="">
-        </mat-form-field>
-        <mat-form-field appearance="fill" style="margin-right: 5px;">
-            <mat-label>First Name</mat-label>
-            <input autocomplete="off" formControlName="personFName" matInput placeholder="">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Last name</mat-label>
-            <input autocomplete="off" formControlName="personLName" matInput placeholder="">
-        </mat-form-field>
-    </form>
-</div>
+<!-- <div class="modal-dialog modal-lg"> -->
+<div class="modal-content">
+    <div class="modal-header">
+        <h3 class="text-primary">{{modalData.title}}</h3>
+    </div>
+    <div class="modal-body">
+        <form #form="ngForm" autocomplete="off">
+            <div class="mt-2" *ngFor="let field of modalData.formFields">
 
-<div mat-dialog-actions [align]="'end'">
-    <button mat-button mat-dialog-close>Close</button>
-    <button mat-raised-button color="accent" disabled={{!studentsForm.valid}} (click)="onAddNewPerson()">Save</button>
+                <div *ngIf="field.type === 'text'">
+                    <label class="text-secondary" for={{field.name}}>{{field.caption}}: </label>
+                    <input class="form-control mb-3" ngModel name={{field.name}} id={{field.name}} type="text" required>
+                </div>
+
+                <div *ngIf="field.type === 'chechbox'">
+                    <label class="text-secondary" for={{field.name}}>{{field.caption}}: </label>
+                    <div class="container d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="form-check" ngModelGroup={{field.name}} *ngFor="let val of field.value">
+                            <input class="form-check-input" ngModel name={{val.name}} type="checkbox" value=""
+                                id={{val.name}}>
+                            <label class="form-check-label" for={{val.name}}>
+                                {{val.name}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <a class="btn" data-dismiss="modal" id="closeModal">Close</a>
+                <button class="btn btn-success" data-dismiss="modal" (click)="submitForm(form)"
+                    [disabled]="!form.valid">{{modalData.actionMode}}</button>
+            </div>
+        </form>
+    </div>
 </div>
+<!-- </div> -->

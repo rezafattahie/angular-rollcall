@@ -1,22 +1,22 @@
 <div>
     <div
         class="align-items-center bg-opacity-10 bg-secondary d-flex example-button-row justify-content-between m-auto mb-1 rounded-5 w-25">
-        <button mat-icon-button color="warn" matTooltip="Remove person" (click)="showModal('delete')">
-            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="delete"></mat-icon>
+        <button class="btn btn-danger" (click)="showModal('delete')">
+            DELETE
         </button>
 
-        <button mat-icon-button matTooltip="Edit person" text-white (click)="showModal('edit')">
-            <mat-icon aria-hidden="false" color="primary" Example home icon fontIcon="edit"></mat-icon>
+        <button class="btn btn-secondary" (click)="showModal('edit')">
+            EDIT
         </button>
 
-        <button mat-icon-button color="accent" matTooltip="Add new person" (click)="showModal('add')">
-            <mat-icon aria-hidden="false" color="accent" aria-label="Example home icon"
-                fontIcon="person_add"></mat-icon>
+        <button class="btn btn-success" (click)="showModal('add')">
+            ADD
         </button>
     </div>
 
     <section>
-        <app-grid class="classes" [dataSource]="gridData" [settings]="gridSettings"></app-grid>
+        <app-grid class="classes" [dataSource]="gridData" [settings]="gridSettings"
+            (selectedRow)="onRowSelect($event)"></app-grid>
     </section>
 </div>
 <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

@@ -25,8 +25,12 @@
                         <use xlink:href="#home" />
                     </svg>
                     {{menuItem.item}}
+                    <button *ngIf="menuItem.children" class="btn" (click)="showChildrens()">
+                        >
+                    </button>
                 </a>
-                <ul *ngIf="menuItem.children" class="nav nav-pills flex-column text-info mb-auto mt-2 ms-4">
+                <ul *ngIf="menuItem.children" [ngClass]="{'visually-hidden': !showChildren}"
+                    class="nav nav-pills flex-column  text-info mb-auto mt-2 ms-4 ">
                     <li *ngFor="let submenu of menuItem.children" class="nav-item mb-1 ">
                         <a href="" [routerLink]="['/'+ menuItem.path + '/' +  submenu.path]" class="nav-link text-white"
                             [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}" aria-current="page">

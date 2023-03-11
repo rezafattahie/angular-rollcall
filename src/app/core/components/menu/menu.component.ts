@@ -11,6 +11,7 @@ export class menuComponent implements OnInit {
 
   menuItems: IMenu[] = [];
   isLoading: boolean = false;
+  showChildren: boolean = false;
 
   constructor(private coreService: CoreService) { }
 
@@ -22,6 +23,9 @@ export class menuComponent implements OnInit {
         this.isLoading = false;
       }
     })
+  }
+  showChildrens() {
+    this.showChildren = !this.showChildren;
   }
 }
 
