@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ApiService } from 'src/app/shared/services/api.service';
@@ -34,7 +34,7 @@ export class AuthService {
     return this.isLoggedIn;
   }
 
-  login(formInfo: NgForm) {
+  login(formInfo: FormGroup) {
     this.api.get('teachers').subscribe((result: any) => {
       this.users = result;
       this.foundUser = this.users.find(user => {

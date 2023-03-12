@@ -9,21 +9,22 @@
             Login to roll call system
         </div>
 
-        <form *ngIf="!isLoading" class="login100-form validate-form" autocomplete="off">
+        <form *ngIf="!isLoading" [formGroup]="loginForm" class="login100-form validate-form" autocomplete="off">
             <div class="wrap-input100 validate-input m-b-26">
                 <span class="label-input100">Username</span>
-                <input class="input100" type="text" ngModel name="username" required>
+                <input class="input100" type="text" formControlName="username">
                 <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 validate-input m-b-18">
                 <span class="label-input100">Password</span>
-                <input class="input100" type="password" ngModel name="password" required>
+                <input class="input100" type="password" formControlName="password">
                 <span class="focus-input100"></span>
             </div>
 
             <div class="container-login100-form-btn">
-                <button class="login100-form-btn">
+                <button class="login100-form-btn" [disabled]="!loginForm.valid"
+                    [ngClass]="{'btn-inactive': !loginForm.valid}" (click)="onSubmit()">
                     Login
                 </button>
             </div>
