@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { IGridSettings } from 'src/app/shared/models/grid-settings.interface';
-import { ApiService } from 'src/app/shared/services/api.service';
+import { BasicDefinitionsService } from '../../services/basic-definitions.service';
 
 @Component({
   selector: 'app-teachers',
@@ -13,7 +14,7 @@ export class TeachersComponent implements OnInit {
   isLoading: boolean = false;
 
   constructor(
-    private api: ApiService
+    private BasicDefinitionsService: BasicDefinitionsService
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +26,7 @@ export class TeachersComponent implements OnInit {
       }
     }
     this.isLoading = true;
-    this.api.get('teachers').subscribe((result) => {
+    this.BasicDefinitionsService.getAll('teachers').subscribe((result) => {
       this.gridData = result;
       this.isLoading = false;
     })

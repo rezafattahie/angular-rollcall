@@ -9,8 +9,7 @@
             Login to roll call system
         </div>
 
-        <form *ngIf="!isLoading" class="login100-form validate-form" autocomplete="off" (ngSubmit)="onSubmit(form)"
-            #form="ngForm">
+        <form *ngIf="!isLoading" class="login100-form validate-form" autocomplete="off">
             <div class="wrap-input100 validate-input m-b-26">
                 <span class="label-input100">Username</span>
                 <input class="input100" type="text" ngModel name="username" required>
@@ -24,7 +23,7 @@
             </div>
 
             <div class="container-login100-form-btn">
-                <button class="login100-form-btn" [disabled]="!form.valid" [ngClass]="{'btn-inactive': !form.valid}">
+                <button class="login100-form-btn">
                     Login
                 </button>
             </div>

@@ -1,6 +1,6 @@
 import { NgModule, } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { NotFoundComponent } from '../core/components/not-found/not-found.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,7 +24,6 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   imports: [
     SharedRoutingModule,
     CommonModule,
-    FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     Ng2SmartTableModule,

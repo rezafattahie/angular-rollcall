@@ -51,7 +51,7 @@ export class studentsComponent {
 
   getAllCources() {
     this.isLoading = true;
-    this.basicDefinitionsService.getCourses().subscribe(result => {
+    this.basicDefinitionsService.getAll('courses').subscribe(result => {
       this.courses = result;
       this.isLoading = false;
     })
@@ -59,7 +59,7 @@ export class studentsComponent {
 
   getAllStudents() {
     this.isLoading = true;
-    this.basicDefinitionsService.getStudents().subscribe({
+    this.basicDefinitionsService.getAll('students').subscribe({
       next: (result: any) => {
         let courses;
         this.gridData = result;
@@ -87,10 +87,10 @@ export class studentsComponent {
           title: 'Add new student',
           actionMode: actionMode,
           formFields: [
-            { name: 'studentId', type: 'text', caption: 'Code' },
-            { name: 'studentFName', type: 'text', caption: 'Name' },
-            { name: 'studentLName', type: 'text', caption: 'Last Name' },
-            { name: 'courses', type: 'chechbox', caption: 'Courses', value: this.courses }
+            { name: 'studentId', type: 'text', caption: 'Code', allowNull: false },
+            { name: 'studentFName', type: 'text', caption: 'Name', allowNull: true },
+            { name: 'studentLName', type: 'text', caption: 'Last Name', allowNull: false },
+            { name: 'courses', type: 'checkbox', caption: 'Courses', value: this.courses, allowNull: false }
           ]
         }
         const modalRef = this.modal.open(ModalComponent);
@@ -103,10 +103,10 @@ export class studentsComponent {
           title: 'Update student',
           actionMode: actionMode,
           formFields: [
-            { name: 'studentId', type: 'text', caption: 'Code' },
-            { name: 'studentFName', type: 'text', caption: 'Name' },
-            { name: 'studentLName', type: 'text', caption: 'Last Name' },
-            { name: 'courses', type: 'chechbox', caption: 'Courses', value: this.courses }
+            { name: 'studentId', type: 'text', caption: 'Code', allowNull: false },
+            { name: 'studentFName', type: 'text', caption: 'Name', allowNull: true },
+            { name: 'studentLName', type: 'text', caption: 'Last Name', allowNull: false },
+            { name: 'courses', type: 'checkbox', caption: 'Courses', value: this.courses, allowNull: false }
           ],
           selectedRow: this.selectedrow
         }

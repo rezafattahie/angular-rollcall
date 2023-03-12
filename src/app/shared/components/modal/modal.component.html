@@ -4,19 +4,28 @@
         <h3 class="text-primary">{{modalData.title}}</h3>
     </div>
     <div class="modal-body">
-        <form #form="ngForm" autocomplete="off">
+        <form [formGroup]="modalForm" autocomplete="off">
             <div class="mt-2" *ngFor="let field of modalData.formFields">
 
                 <div *ngIf="field.type === 'text'">
-                    <label class="text-secondary" for={{field.name}}>{{field.caption}}: </label>
-                    <input class="form-control mb-3" ngModel name={{field.name}} id={{field.name}} type="text" required>
+                    <label class="text-secondary" for={{field.name}}>
+                        {{field.caption}}
+                        <span class="text-danger" *ngIf="!field.allowNull">*</span>
+                        :
+                    </label>
+                    <input class="form-control mb-3" [formControlName]="field.name" id={{field.name}} type="text">
                 </div>
 
-                <div *ngIf="field.type === 'chechbox'">
-                    <label class="text-secondary" for={{field.name}}>{{field.caption}}: </label>
-                    <div class="container d-flex flex-wrap align-items-center justify-content-between">
-                        <div class="form-check" ngModelGroup={{field.name}} *ngFor="let val of field.value">
-                            <input class="form-check-input" ngModel name={{val.name}} type="checkbox" value=""
+                <div *ngIf="field.type === 'checkbox'">
+                    <label class="text-secondary" for={{field.name}}>
+                        {{field.caption}}
+                        <span class="text-danger" *ngIf="!field.allowNull">*</span>
+                        :
+                    </label>
+                    <div [formGroupName]="field.name"
+                        class="container d-flex flex-wrap align-items-center justify-content-between">
+                        <div class="form-check" *ngFor="let val of field.value">
+                            <input class="form-check-input" [formControlName]="val.name" type="checkbox"
                                 id={{val.name}}>
                             <label class="form-check-label" for={{val.name}}>
                                 {{val.name}}
@@ -28,8 +37,8 @@
             </div>
             <div class="modal-footer">
                 <a class="btn" data-dismiss="modal" id="closeModal">Close</a>
-                <button class="btn btn-success" data-dismiss="modal" (click)="submitForm(form)"
-                    [disabled]="!form.valid">{{modalData.actionMode}}</button>
+                <button [disabled]="!modalForm.valid" class="btn btn-success" data-dismiss="modal"
+                    (click)="submitForm()">{{modalData.actionMode}}</button>
             </div>
         </form>
     </div>

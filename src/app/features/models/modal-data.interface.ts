@@ -2,13 +2,14 @@ export interface IModalData {
     actionMode: string,
     parent: string,
     title?: string,
-    formFields?: IFormatFields[],
-    selectedRow?: { id: number };
+    formFields?: IFormFields[],
+    selectedRow?: any;
 }
 
-interface IFormatFields {
-    name: string,
-    type: 'text' | 'select' | 'chechbox',
+export interface IFormFields {
+    name: any,
+    allowNull: boolean,
+    type: 'text' | 'select' | 'checkbox',
     caption: string,
     value?: any
 }

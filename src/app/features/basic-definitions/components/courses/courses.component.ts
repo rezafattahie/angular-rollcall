@@ -30,7 +30,7 @@ export class CoursesComponent {
 
   getAllCourses() {
     this.isLoading = true;
-    this.basicDefinitionsService.getCourses().subscribe((result) => {
+    this.basicDefinitionsService.getAll('courses').subscribe((result) => {
       this.gridData = result;
       this.isLoading = false;
     })

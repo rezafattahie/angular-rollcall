@@ -12,13 +12,10 @@ export class BasicDefinitionsService {
         return this.api.post(data, url);
     }
 
-    getStudents() {
-        return this.api.get('students');
+    getAll(url: string) {
+        return this.api.get(url);
     }
 
-    getCourses() {
-        return this.api.get('courses');
-    }
 
     editItem(data: any, url: string, id: number) {
         return this.api.put(data, url, id)
