@@ -1,15 +1,15 @@
 <div>
     <div
         class="align-items-center bg-opacity-10 bg-secondary d-flex example-button-row justify-content-between m-auto mb-1 rounded-5 w-25">
-        <button class="btn btn-danger" (click)="showModal('delete')">
+        <button class="btn btn-danger" (click)="showModal('Delete')">
             Delete
         </button>
 
-        <button class="btn btn-secondary" (click)="showModal('edit')">
+        <button class="btn btn-secondary" (click)="showModal('Edit')">
             Edit
         </button>
 
-        <button class="btn btn-success" (click)="showModal('add')">
+        <button class="btn btn-success" (click)="showModal('Add')">
             Add
         </button>
     </div>
@@ -19,4 +19,16 @@
             (selectedRow)="onRowSelect($event)"></app-grid>
     </section>
 </div>
+
+<ng-template #modalForm let-modal>
+    <div class="modal-header card-header">
+        <h5 class="modal-title text-danger">{{modalData.title}}</h5>
+    </div>
+
+    <div class="modal-body companyTabs">
+        <app-modalForm [modalData]="modalData" (onSubmit)="submitModal($event)"
+            (onCancel)="cancelModal($event)"></app-modalForm>
+    </div>
+</ng-template>
+
 <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>

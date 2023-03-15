@@ -1,41 +1,49 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 
-import { BasicDefinitionsService } from 'src/app/features/basic-definitions/services/basic-definitions.service';
 import { IModalData, IFormFields } from 'src/app/features/models/modal-data.interface';
 
-
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  selector: 'app-modalForm',
+  templateUrl: './modal-Form.component.html',
+  styleUrls: ['./modal-Form.component.scss']
 })
-export class ModalComponent {
+export class ModalFormComponent implements OnInit, OnChanges {
 
-  @Input() modalData: IModalData = { actionMode: '', parent: '' };
+  @Input() modalData: IModalData = { actionMode: '' };
+  @Output() onCancel = new EventEmitter<boolean>()
+  @Output() onSubmit = new EventEmitter<{}>()
+
   modalForm: FormGroup = new FormGroup({});
+  imageSrc: string = '';
 
-  constructor(
-    private basicDefinitionsService: BasicDefinitionsService,
-  ) { }
+  constructor() { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['modalData']) {
+    }
+  }
 
 
   ngOnInit(): void {
     this.createFormControls();
     console.log('%cmodal.component.ts line:25 this.modalData', 'color: white; background-color: #26bfa5;', this.modalData);
 
-    if (this.modalData.actionMode === 'edit') {
+    if (this.modalData.actionMode === 'Edit') {
       this.modalData.formFields?.forEach((field: IFormFields) => {
         if (field.type === 'checkbox') {
           this.modalData.selectedRow![field.name].forEach((val: any) => {
-
-
             this.modalForm.get(field.name + '.' + val)?.setValue(true)
-
-
           })
         }
+        if (field.type === 'image') {
+          this.imageSrc = this.modalData.selectedRow![field.name];
+          const file = this.modalForm.get(field.name)
+
+        }
+        // else {
         this.modalForm.get(field.name)?.patchValue(this.modalData.selectedRow![field.name])
+        // }
       })
     }
 
@@ -71,38 +79,13 @@ export class ModalComponent {
   }
 
   submitForm() {
-    switch (this.modalData.actionMode) {
-      case 'add': {
-        this.basicDefinitionsService.addNewItem(this.modalForm.value, this.modalData.parent).subscribe({
-          next: (res) => {
+    const file: any = document.getElementById('imageUrl');
+    // this.modalForm.get('imageUrl')?.patchValue(file.value);
+    this.onSubmit.emit(this.modalForm.value);
+  }
 
-          },
-          error: () => { }
-        })
-
-        break;
-      }
-      case 'edit': {
-        this.basicDefinitionsService.editItem(this.modalForm.value, this.modalData.parent, this.modalData.selectedRow!.id)
-          .subscribe({
-            next: (result) => {
-
-            },
-            error: () => { }
-          })
-        break;
-      }
-      case 'delete': {
-        this.basicDefinitionsService.delete(this.modalData.parent, this.modalData.selectedRow!['id'])
-          .subscribe({
-            next: (res) => {
-
-            },
-            error: () => { }
-          })
-        break;
-      }
-    }
+  onClose() {
+    this.onCancel.emit(true);
   }
 
 }

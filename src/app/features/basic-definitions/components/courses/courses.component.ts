@@ -21,7 +21,7 @@ export class CoursesComponent {
   ngOnInit(): void {
     this.gridSettings = {
       columns: {
-        "id": { title: 'Code' },
+        "code": { title: 'Code' },
         "name": { title: 'Name' },
       }
     }

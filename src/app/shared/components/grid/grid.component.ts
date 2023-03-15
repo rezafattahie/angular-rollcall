@@ -9,14 +9,17 @@ import { IGridSettings } from '../../models/grid-settings.interface';
 })
 export class GridComponent {
 
-  @Input() dataSource = [];
+  @Input() dataSource: any = [];
   @Input() settings: IGridSettings = { columns: {} };
   @Output() selectedRow = new EventEmitter();
+
+  gridData: any = [];
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['dataSource']) {
+      this.gridData = this.dataSource;
     }
   }
 

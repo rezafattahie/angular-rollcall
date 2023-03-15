@@ -40,117 +40,57 @@
   ],
   "students": [
     {
-      "studentId": "1324",
-      "studentFName": "asg",
-      "studentLName": "asfg",
+      "studentId": "3",
+      "studentFName": "Mahsan",
+      "studentLName": "Ghasemiiii",
       "courses": {
         "Mathematics": true,
-        "Computer": false,
-        "Physics": true
-      },
-      "id": 1
-    },
-    {
-      "studentId": "456",
-      "studentFName": null,
-      "studentLName": "ash",
-      "courses": {
-        "Mathematics": null,
-        "Computer": null,
-        "Physics": null
-      },
-      "id": 2
-    },
-    {
-      "studentId": "AEGTs",
-      "studentFName": "SDG",
-      "studentLName": "ASDG",
-      "courses": null,
-      "id": 3
-    },
-    {
-      "studentId": "25624",
-      "studentFName": "ashf",
-      "studentLName": "sadfh",
-      "courses": {
-        "Mathematics": true,
-        "Computer": false,
-        "Physics": true
-      },
-      "id": 4
-    },
-    {
-      "studentId": "35125",
-      "studentFName": "asfgasfg",
-      "studentLName": "SFga",
-      "courses": {
-        "Mathematics": false,
         "Computer": true,
         "Physics": true
       },
-      "id": 5
-    },
-    {
-      "studentId": null,
-      "studentFName": null,
-      "studentLName": null,
-      "courses": {
-        "Mathematics": null,
-        "Computer": null,
-        "Physics": null
-      },
-      "id": 6
-    },
-    {
-      "studentId": null,
-      "studentFName": null,
-      "studentLName": null,
-      "courses": {
-        "Mathematics": null,
-        "Computer": null,
-        "Physics": null
-      },
-      "id": 7
+      "id": 3
     }
   ],
   "teachers": [
     {
       "code": "1",
       "name": "Admin",
-      "courses": [],
+      "username": "Admin",
+      "password": "1",
       "imageUrl": "",
-      "username": "1",
-      "password": "1"
+      "courses": {
+        "Mathematics": true,
+        "Computer": true,
+        "French": true
+      },
+      "id": 1
     },
     {
-      "code": "1001",
-      "name": "Mr Smith",
-      "courses": [],
+      "code": "2070",
+      "name": "Reza",
+      "username": "Reza",
+      "password": "2070",
       "imageUrl": "",
-      "username": "1001",
-      "password": "1001"
-    },
-    {
-      "code": "1002",
-      "name": "Mr John",
-      "courses": [],
-      "imageUrl": "",
-      "username": "1002",
-      "password": "1002"
+      "courses": {
+        "Mathematics": true,
+        "Computer": true,
+        "French": true
+      },
+      "id": 2
     }
   ],
   "courses": [
     {
-      "id": 101,
+      "code": "101",
       "name": "Mathematics"
     },
     {
-      "id": 102,
+      "code": "102",
       "name": "Computer"
     },
     {
-      "id": 103,
-      "name": "Physics"
+      "code": "103",
+      "name": "French"
     }
   ],
   "holidays": [

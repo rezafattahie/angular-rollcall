@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import { BasicDefinitionsService } from '../../services/basic-definitions.service';
 import { IModalData } from 'src/app/features/models/modal-data.interface';
 import { IGridSettings } from 'src/app/shared/models/grid-settings.interface';
 import { UtilityService } from 'src/app/core/services/utility.service';
 import { ToastrService } from 'ngx-toastr';
+import { IStudents } from 'src/app/features/models/students.interface';
 
 @Component({
   selector: 'app-students',
@@ -15,8 +15,17 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class studentsComponent {
 
+  @ViewChild('modalForm', { static: false }) modalForm?: TemplateRef<HTMLElement>;
+
   isLoading: boolean = false;
-  modalData: IModalData = { actionMode: '', parent: '' };
+  modalData: IModalData = { actionMode: 'Add' };
+  openedModal: any;
+  gridData: any;
+  courses: any;
+  gridSettings: IGridSettings = { columns: {} };
+  selectedRow: any
+  classes: { [ket: string]: boolean } = {};
+  isRowSelected: boolean = false;
 
   constructor(
     private modal: NgbModal,
@@ -24,13 +33,6 @@ export class studentsComponent {
     private utility: UtilityService,
     private toast: ToastrService
   ) { }
-
-  gridData: any;
-  courses: any;
-  gridSettings: IGridSettings = { columns: {} };
-  selectedrow: any
-  classes: { [ket: string]: boolean } = {};
-  isRowSelected: boolean = false;
 
   ngOnInit() {
     this.getAllStudents();
@@ -45,7 +47,7 @@ export class studentsComponent {
     }
 
     this.classes = {
-      'row-selected': this.isRowSelected,
+      'selected': this.isRowSelected,
     }
   }
 
@@ -61,7 +63,6 @@ export class studentsComponent {
     this.isLoading = true;
     this.basicDefinitionsService.getAll('students').subscribe({
       next: (result: any) => {
-        let courses;
         this.gridData = result;
         result.forEach((res: any, index: any) => {
           this.gridData[index].courses = this.utility.getKeyByValue(res['courses'], true)
@@ -74,68 +75,98 @@ export class studentsComponent {
     });
   }
   onRowSelect(event: Event) {
-    this.selectedrow = event;
-    this.isRowSelected = true;
+    this.selectedRow = event;
+    // this.isRowSelected = true;
   }
 
   showModal(actionMode: string) {
-    this.modalData = { actionMode: '', parent: '' }
-    switch (actionMode) {
-      case 'add': {
-        this.modalData = {
-          parent: 'students',
-          title: 'Add new student',
-          actionMode: actionMode,
-          formFields: [
-            { name: 'studentId', type: 'text', caption: 'Code', allowNull: false },
-            { name: 'studentFName', type: 'text', caption: 'Name', allowNull: true },
-            { name: 'studentLName', type: 'text', caption: 'Last Name', allowNull: false },
-            { name: 'courses', type: 'checkbox', caption: 'Courses', value: this.courses, allowNull: false }
-          ]
-        }
-        const modalRef = this.modal.open(ModalComponent);
-        modalRef.componentInstance.modalData = this.modalData;
-        break;
+    if (actionMode === 'Edit' &&
+      (!this.selectedRow || this.selectedRow === undefined)) {
+      this.toast.error('Select an item to update first!');
+    } else if (actionMode !== 'Delete') {
+      this.modalData = { actionMode: '' }
+      this.modalData = {
+        title: actionMode === 'Add' ? 'Add New Student' : 'Update Student',
+        actionMode: actionMode,
+        formFields: [
+          { name: 'studentId', type: 'textInput', caption: 'Code', allowNull: false },
+          { name: 'studentFName', type: 'textInput', caption: 'Name', allowNull: true },
+          { name: 'studentLName', type: 'textInput', caption: 'Last Name', allowNull: false },
+          { name: 'courses', type: 'checkbox', caption: 'Courses', value: this.courses, allowNull: false }
+        ],
+        selectedRow: actionMode === 'Edit' ? this.selectedRow : ''
       }
-      case 'edit': {
-        this.modalData = {
-          parent: 'students',
-          title: 'Update student',
-          actionMode: actionMode,
-          formFields: [
-            { name: 'studentId', type: 'text', caption: 'Code', allowNull: false },
-            { name: 'studentFName', type: 'text', caption: 'Name', allowNull: true },
-            { name: 'studentLName', type: 'text', caption: 'Last Name', allowNull: false },
-            { name: 'courses', type: 'checkbox', caption: 'Courses', value: this.courses, allowNull: false }
-          ],
-          selectedRow: this.selectedrow
-        }
-        if (!this.modalData.selectedRow) {
-          this.toast.error('Select an item to update first!')
-        }
-        else {
-          const modalRef = this.modal.open(ModalComponent);
-          modalRef.componentInstance.modalData = this.modalData;
-        }
-        break;
-      }
-      case 'delete': {
-        this.modalData = {
-          parent: 'students',
-          title: 'Delete student',
-          actionMode: actionMode,
-          selectedRow: this.selectedrow
-        }
-        if (!this.modalData.selectedRow) {
-          this.toast.error('Select an item to delete first!')
-        }
-        else {
-          const modalRef = this.modal.open(ModalComponent);
-          modalRef.componentInstance.modalData = this.modalData;
-        }
-      }
-
+      this.openedModal = this.modal.open(this.modalForm, { centered: true, size: 'lg' });
     }
+    else {
+      this.modalData = {
+        actionMode: actionMode,
+        title: 'Delete Student',
+        formFields: [{
+          name: '', type: 'text',
+          caption: `You are about deleting ${this.selectedRow.studentFName} ${this.selectedRow.studentLName}. Are you sure?`,
+          allowNull: true
+        }],
+        selectedRow: this.selectedRow
+      }
+      this.openedModal = this.modal.open(this.modalForm, { centered: false, size: 'lg' });
+    }
+
+  }
+
+  submitModal(event: {}) {
+    this.isLoading = true;
+    switch (this.modalData.actionMode) {
+      case 'Add': {
+        this.basicDefinitionsService.addNewItem(event, 'students').subscribe({
+          next: () => {
+            this.gridData.push(event);
+            this.closeModal();
+            this.isLoading = false;
+          },
+          error: () => {
+            this.closeModal();
+            this.isLoading = false;
+          }
+        });
+        break;
+      }
+      case 'Edit': {
+        this.basicDefinitionsService.editItem(event, 'students', this.selectedRow.id).subscribe({
+          next: () => {
+            this.closeModal();
+            this.isLoading = false;
+          },
+          error: () => {
+            this.closeModal();
+            this.isLoading = false;
+          }
+        });
+        break;
+      }
+      case 'Delete': {
+        this.basicDefinitionsService.delete('students', this.selectedRow.id).subscribe({
+          next: () => {
+            this.closeModal();
+            this.isLoading = false;
+          },
+          error: () => {
+            this.closeModal();
+            this.isLoading = false;
+          }
+        });
+        break;
+      }
+    }
+    console.log('%cstudents.component.ts line:138 onSubmit', 'color: white; background-color: coral;', event);
+  }
+
+  closeModal() {
+    this.openedModal.close();
+  }
+
+  cancelModal(event: boolean) {
+    event && this.closeModal();
   }
 
 }

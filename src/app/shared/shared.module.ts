@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { NotFoundComponent } from '../core/components/not-found/not-found.component';
 import { LoginComponent } from './components/login/login.component';
-import { ModalComponent } from './components/modal/modal.component';
+import { ModalFormComponent } from './components/modal/modal-form.component';
 import { GridComponent } from './components/grid/grid.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
@@ -17,7 +17,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   declarations: [
     LoginComponent,
     NotFoundComponent,
-    ModalComponent,
+    ModalFormComponent,
     GridComponent,
     LoadingSpinnerComponent,
   ],
@@ -30,6 +30,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
   ],
   exports: [
     GridComponent,
+    ModalFormComponent,
     LoadingSpinnerComponent,
   ]
 })

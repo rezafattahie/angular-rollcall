@@ -1,0 +1,53 @@
+<form class="row" [formGroup]="modalForm" autocomplete="off">
+    <div class="mt-2 col-6" *ngFor="let field of modalData.formFields">
+
+        <div *ngIf="field.type === 'text'">
+            <p>{{field.caption}}</p>
+        </div>
+
+        <div *ngIf="field.type === 'textInput'">
+            <label class="text-secondary" for={{field.name}}>
+                {{field.caption}}
+                <span class="text-danger" *ngIf="!field.allowNull">*</span>
+                :
+            </label>
+            <input class="form-control mb-3" [formControlName]="field.name" id={{field.name}} type="text">
+        </div>
+
+        <div *ngIf="field.type === 'checkbox'">
+            <label class=" text-secondary" for={{field.name}}>
+                {{field.caption}}
+                <span class="text-danger" *ngIf="!field.allowNull">*</span>
+                :
+            </label>
+            <div [formGroupName]="field.name"
+                class="container d-flex flex-wrap align-items-center justify-content-between">
+                <div class="form-check" *ngFor="let val of field.value">
+                    <input class="form-check-input" [formControlName]="val.name" type="checkbox" id={{val.name}}>
+                    <label class="form-check-label" for={{val.name}}>
+                        {{val.name}}
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div *ngIf="field.type === 'image'">
+                <label class="text-secondary" for={{field.name}}>
+                    {{field.caption}}
+                    <span class="text-danger" *ngIf="!field.allowNull">*</span>
+                    :
+                </label>
+                <input class="form-control mb-3" [formControlName]="field.name" id={{field.name}} type="file">
+                <img src="{{imageSrc}}" class="rounded-circle float-start img-thumbnail"
+                    style="width:9rem; height: 9rem;">
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-secondary" data-dismiss="modal" id="closeModal" (click)="onClose()">Close</a>
+        <button class="btn btn-primary w-25" [disabled]="!modalForm.valid" data-dismiss="modal"
+            (click)="submitForm()">{{modalData.actionMode}}</button>
+    </div>
+</form>

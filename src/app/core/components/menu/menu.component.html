@@ -25,10 +25,10 @@
                         <use xlink:href="#home" />
                     </svg>
                     {{menuItem.item}}
-                    <button *ngIf="menuItem.children" class="btn text-white" (click)=" showChildrens()">
-                        >
-                    </button>
                 </a>
+                <button *ngIf="menuItem.children" class="btn text-white" (click)=" showChildrens()">
+                    >
+                </button>
                 <ul *ngIf="menuItem.children" [ngClass]="{'visually-hidden': !showChildren}"
                     class="nav nav-pills flex-column  text-info mb-auto mt-2 ms-4 ">
                     <li *ngFor="let submenu of menuItem.children" class="nav-item mb-1 ">

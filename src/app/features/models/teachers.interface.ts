@@ -1,7 +1,7 @@
 export interface ITeachers {
     name: string,
     code: string,
-    courses: [],
+    courses: {},
     imageUrl: string,
     username: string,
     password: string
