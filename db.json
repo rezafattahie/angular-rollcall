@@ -82,15 +82,18 @@
   "courses": [
     {
       "code": "101",
-      "name": "Mathematics"
+      "name": "Mathrmatics",
+      "id": 1
     },
     {
       "code": "102",
-      "name": "Computer"
+      "name": "Computer",
+      "id": 2
     },
     {
       "code": "103",
-      "name": "French"
+      "name": "Physics",
+      "id": 3
     }
   ],
   "holidays": [
