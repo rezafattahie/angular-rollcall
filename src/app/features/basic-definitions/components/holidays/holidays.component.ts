@@ -4,11 +4,33 @@ import { NgbDateStruct, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { IModalData } from 'src/app/features/models/modal-data.interface';
 import { BasicDefinitionsService } from '../../services/basic-definitions.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-holidays',
   templateUrl: './holidays.component.html',
-  styleUrls: ['./holidays.component.scss']
+  styleUrls: ['./holidays.component.scss'],
+  animations: [
+    trigger('holidayList', [
+      state('current', style({
+        opacity: 1,
+        transform: 'translateY(0)',
+        scale: 1
+      })),
+      transition('void => *', [
+        style({
+          opacity: 0,
+          scale: 0,
+          transform: 'translateY(-100px)'
+        }), animate(400)
+      ]),
+      transition('* => void', animate(400, style({
+        opacity: 0,
+        scale: 0,
+        transform: 'translateY(100px)'
+      })))
+    ])
+  ]
 })
 export class HolidaysComponent implements OnInit {
 
