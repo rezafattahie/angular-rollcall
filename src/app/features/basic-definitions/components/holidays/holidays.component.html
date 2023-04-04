@@ -1,11 +1,11 @@
 <div class="d-flex p-4">
     <app-date-picker class="w-50" (onHolidaySelect)="onAddHoliday($event)"></app-date-picker>
-    <div *ngIf="holidays && holidays.length > 0" class="list-group w-50">
-        <h4 [@holidayList] class="mb-1 list-group-item list-group-item-danger">Holidays</h4>
-        <p [@holidayList] *ngFor="let holiday of holidays"
-            class="list-group-item list-group-item-success m-0 d-flex align-items-center justify-content-between">
+    <ul *ngIf="holidays && holidays.length > 0" class="list-group list-group-flush w-50">
+        <li [@holidayList] class="mb-1 list-group-item list-group-item-info">Holidays</li>
+        <li [@holidayList] *ngFor="let holiday of holidays"
+            class="list-group-item list-group-item-secondary m-0 d-flex align-items-center justify-content-between">
             <span> {{holiday}}</span>
             <button class="btn btn-outline-danger" (click)="removeHoliday(holiday)">Remove</button>
-        </p>
-    </div>
+        </li>
+    </ul>
 </div>

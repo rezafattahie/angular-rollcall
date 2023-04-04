@@ -15,19 +15,19 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
       state('current', style({
         opacity: 1,
         transform: 'translateY(0)',
-        scale: 1
+        // scale: 1
       })),
       transition('void => *', [
         style({
           opacity: 0,
-          scale: 0,
-          transform: 'translateY(-100px)'
-        }), animate(400)
+          // scale: 0,
+          transform: 'translateY(100px)'
+        }), animate(300)
       ]),
-      transition('* => void', animate(400, style({
+      transition('* => void', animate(300, style({
         opacity: 0,
-        scale: 0,
-        transform: 'translateY(100px)'
+        // scale: 0,
+        transform: 'translateX(300px)'
       })))
     ])
   ]
