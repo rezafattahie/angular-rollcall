@@ -44,9 +44,10 @@
       "studentFName": "Mahsan",
       "studentLName": "Ghasemiiii",
       "courses": {
-        "Mathematics": true,
-        "Computer": true,
-        "Physics": true
+        "Mathrmatics": false,
+        "Computer": false,
+        "Physics": true,
+        "Algorithm": true
       },
       "id": 3
     }
@@ -103,8 +104,8 @@
   ],
   "holidays": [
     {
-      "date": "2023/3/25",
-      "id": 4
+      "date": "2023/5/24",
+      "id": 6
     }
   ],
   "comments": []
