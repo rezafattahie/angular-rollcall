@@ -60,9 +60,10 @@
       "password": "1",
       "imageUrl": "",
       "courses": {
-        "Mathematics": true,
+        "Mathrmatics": true,
         "Computer": true,
-        "French": true
+        "Physics": true,
+        "Algorithm": true
       },
       "id": 1
     },
